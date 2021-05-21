@@ -64,13 +64,13 @@ if __name__  == "__main__":
     for data in getDatas.values:
         popuptext="類型：%s<br>名稱：%s<br>無障礙設施：<b>%s</b><br>地址：%s"%(data[1],data[2], data[3], data[4])
         iframe = folium.IFrame(popuptext, height = 150)
-        
+        icon_color= color(data[3])
         folium.Marker(
             location=[data[5],data[6]],
             radius=20,
             popup = folium.Popup(iframe, max_width=300,min_width=300) ,
-            color='#3186cc',
-
+            tooltip = data[2],
+            icon = folium.Icon(color=icon_color, prefix= 'fa',icon=r'wheelchair',icon_color='black'),
             ).add_to(m)
     m.save("map.html")
 
