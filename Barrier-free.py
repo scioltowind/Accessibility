@@ -50,7 +50,14 @@ def fileMerge():
     
     #存成csv檔
     All_data.to_csv("All_data.csv", encoding = 'utf-8')
-
+    
+def color(Acc_type):
+    
+    if Acc_type in ['無障礙廁所']:
+        colors = 'blue'
+    else:
+        colors = 'purple'
+    return colors
 
 
 if __name__  == "__main__":
