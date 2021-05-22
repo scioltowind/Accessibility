@@ -79,5 +79,5 @@ if __name__  == "__main__":
             tooltip = data[2],
             icon = folium.Icon(color=icon_color, prefix= 'fa',icon=r'wheelchair',icon_color='black'),
             ).add_to(m)
-    m.save("scioltowind/Accessibility/map.html")
+    m.save("map.html")
 
