@@ -9,6 +9,7 @@ import requests
 import pandas as pd
 import json
 import folium
+import webbrowser
 
 def download():
     API_Key = '30c0fc11-81bb-4296-8bad-72dc7fae5eaf'
