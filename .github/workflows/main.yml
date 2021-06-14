@@ -5,6 +5,7 @@ name: 'GitHub Actions Accessibility Bot'
 # Controls when the action will run. 
 on:
   push:
+    branches: [master]
 #   schedule:
 #     - cron: '00 * * * *'
 
