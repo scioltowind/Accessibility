@@ -38,3 +38,21 @@ jobs:
       # Runs a single command using the runners shell
       - name: 'Run Accessibility'
         run: python Barrier-free.py
+        
+      - name: Commit files
+        id: commit
+        run:
+          git config --local user.email "liangting.chen@gmail.com"
+          git config --local user.name "scioltowind"
+         if [-z "$(git status --porcelain)"]; then
+           echo "::set-output name=push::false"
+         else
+           git commit -m "Add changes" -a
+           echo "::set-output name=push::true"
+         fi
+        shell: bash
+      - name: Push changes
+        if: steps.commit.outputs.push == 'true'
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}  
