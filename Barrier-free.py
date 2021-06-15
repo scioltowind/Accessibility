@@ -81,4 +81,4 @@ if __name__  == "__main__":
             icon = folium.Icon(color=icon_color, prefix= 'fa',icon=r'wheelchair',icon_color='black'),
             ).add_to(m)
     m.save("map.html")
-    webbrowser.open_new_tab('map.html')
+
