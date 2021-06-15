@@ -6,8 +6,8 @@ name: 'GitHub Actions Accessibility Bot'
 on:
   push:
     branches: [master]
-#   schedule:
-#     - cron: '00 * * * *'
+   schedule:
+        - cron: '00 * * * *'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
