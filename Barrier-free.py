@@ -9,7 +9,6 @@ import requests
 import pandas as pd
 import json
 import folium
-import webbrowser
 
 def download():
     API_Key = '30c0fc11-81bb-4296-8bad-72dc7fae5eaf'
@@ -51,9 +50,10 @@ def fileMerge():
     
     #存成csv檔
     All_data.to_csv("All_data.csv", encoding = 'utf-8')
-    
+
 def color(Acc_type):
-    
+    #color_options = {'beige', 'black', 'blue', 'cadetblue', 'darkblue', 'darkgreen', 'darkpurple', 'darkred', 'gray', 'green', 'lightblue', 'lightgray', 'lightgreen', 'lightred', 'orange', 'pink', 'purple', 'red', 'white'}
+
     if Acc_type in ['無障礙廁所']:
         colors = 'blue'
     else:
@@ -62,9 +62,9 @@ def color(Acc_type):
 
 
 if __name__  == "__main__":
-    download()
-    fileMerge()
-   
+    #download()
+    #fileMerge()
+    #地圖的中心點，ZOOM_START 表示縮放大小。
     m = folium.Map((23.973694,120.680687),zoom_start=12)
     data_fn = 'All_data.csv'
     getDatas = pd.read_csv(data_fn , encoding = 'utf-8')
@@ -79,6 +79,7 @@ if __name__  == "__main__":
             popup = folium.Popup(iframe, max_width=300,min_width=300) ,
             tooltip = data[2],
             icon = folium.Icon(color=icon_color, prefix= 'fa',icon=r'wheelchair',icon_color='black'),
+            # color='#ff00ff',
             ).add_to(m)
     m.save("map.html")
 
